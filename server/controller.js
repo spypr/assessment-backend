@@ -17,6 +17,28 @@ module.exports = {
         let randomFortune = fortunes[randomIndex];
       
         res.status(200).send(randomFortune);
+    },
+    
+    createUser: (req,res) => {
+        let { name, age } = req.body
+        let newUser = {
+            id: newID,
+            name,
+            age
+        }
+        database.push(newUser)
+
+        res.status(200).send(database)
+
+        newID++
+    },
+
+    deleteUser: (req,res) => {
+        console.log(req.params)
+        let { id } = req.params
+        let index = database.findindex(userObj => userObj.id === +id)
+        database.splice(index,1)
+        res.status(200).send(database)
     }
 
 }
