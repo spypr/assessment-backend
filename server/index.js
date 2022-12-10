@@ -7,9 +7,9 @@ app.use(cors());
 
 app.use(express.json());
 
-const { getCompliment } = require('./controller');
+const { getCompliment, createUser } = require('./controller');
 const { getFortune } = require('./controller');
-
+app.get("/api/users",createUser);
 app.get("/api/compliment", getCompliment);
 app.get("/api/fortune", getFortune);
 
