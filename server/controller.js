@@ -1,3 +1,5 @@
+let newID = 10
+let database = {}
 module.exports = {
 
     getCompliment: (req, res) => {
@@ -19,6 +21,7 @@ module.exports = {
         res.status(200).send(randomFortune);
     },
     
+
     createUser: (req,res) => {
         let { name, age } = req.body
         let newUser = {
@@ -26,8 +29,8 @@ module.exports = {
             name,
             age
         }
-        database.push(newUser)
-
+        database = newUser
+        console.log(database)
         res.status(200).send(database)
 
         newID++
@@ -37,7 +40,7 @@ module.exports = {
         console.log(req.params)
         let { id } = req.params
         let index = database.findindex(userObj => userObj.id === +id)
-        database.splice(index,1)
+        database = {}
         res.status(200).send(database)
     }
 
