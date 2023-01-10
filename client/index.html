@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Back End Assessment</title>
-    <link rel="stylesheet" href="text.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body class="container">
-
     <header>
       <h1 class="center" style="text-align:center;">Get your fortune told by the fox!</h1>
     </header>
@@ -18,45 +14,20 @@
     <br>
 
     <main>
-    <h1 class="center" style="color: purple;">Step 1:</h1>
+      <h1 class="center" style="color: purple;">Step 1:</h1>
     <button id="complimentButton" class="button4">Get a compliment from the fox!</button>
-
+    <br>
+    <form class="button4">
+      <input type="text" placeholder="Give the fox a compliment!" id="complimentInput">
+      <button class="button4">Submit</button>
+    </form>
+    <br>
+    <button id="allComplimentsButton" class="button4">See All Compliments</button>
+    <ol id = "complimentsList" class="center">
+    </ol>
     <h1 class="center" style="color: purple;">Step 2:</h1>
-    <h3 class="center">Tell the fox about yourself so that she can reveal your fortune:</h3>
-
-    <form class="center">
-      <input 
-          type='text'
-          id="name"
-          placeholder="First name"/>
-      <input 
-          type='text'
-          id="age"
-          placeholder="Age"/>
-      <button class="button2">Submit</button>
-  </form>
-
-  <section id="user-container"></section>
-
-    <h3 class="center">Do you regret telling the random internet fox your information?</h3>
-
-    <button id="deleteButton" class="button3">Delete me please</button>
-
-    <h3 class="center">Did you accidently misspell your first name? Update it below</h3>
-
-    <form class="center">
-      <input 
-          type='text'
-          id="updatedname"
-          placeholder='Enter correct first name'/>
-      <button class="button2">Submit</button>
-  </form>
-
-    <h1 class="center" style="color: purple;">Step 3:</h1>
-    <button id="fortuneButton" class="button">Reveal your fortune</button>
-
-    </main>
-
+    <h3 class="center">Get your fortune!</h3>
+    <button id="fortuneButton" class="button4">Fortune</button>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
     
