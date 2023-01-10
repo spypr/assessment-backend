@@ -1,47 +1,47 @@
-let newID = 10
-let database = {}
+const compliments = [
+  "Gee, you're a smart cookie!",
+  "Cool shirt!",
+  "Your Javascript skills are stellar.",
+];
+const fortunes = [
+  "The greatest risk is not taking one.",
+  "Land is always on the mind of a flying bird.",
+  "You are very talented in many ways.",
+];
+
 module.exports = {
+  getFortune: (req, res) => {
+    let randomIndex = Math.floor(Math.random() * fortunes.length);
+    let randomFortune = fortunes[randomIndex];
+    res.status(200).send(randomFortune);
+  },
 
-    getCompliment: (req, res) => {
-        const compliments = ["Gee, you're a smart cookie!", "Cool shirt!", "Your Javascript skills are stellar."];
-      
-        // choose random compliment
-        let randomIndex = Math.floor(Math.random() * compliments.length);
-        let randomCompliment = compliments[randomIndex];
-      
-        res.status(200).send(randomCompliment);
-    },
+  getCompliment: (req, res) => {
+    let randomIndex = Math.floor(Math.random() * compliments.length);
+    let randomCompliment = compliments[randomIndex];
+    res.status(200).send(randomCompliment);
+  },
 
-    getFortune: (req, res) => {
-        const fortunes = ["A beautiful, smart, and loving person will be coming into your life.", "A dubious friend may be an enemy in camouflage.", "A faithful friend is a strong defense.", "A feather in the hand is better than a bird in the air", "A fresh start will put you on your way."];
-      
-        let randomIndex = Math.floor(Math.random() * fortunes.length);
-        let randomFortune = fortunes[randomIndex];
-      
-        res.status(200).send(randomFortune);
-    },
-    
+  showAllCompliments: (req, res) => {
+    res.status(200).send(compliments);
+  },
 
-    createUser: (req,res) => {
-        let { name, age } = req.body
-        let newUser = {
-            id: newID,
-            name,
-            age
-        }
-        database = newUser
-        console.log(database)
-        res.status(200).send(database)
+  addCompliment: (req, res) => {
+    console.log("addcompliment in controller");
+    let { newCompliment } = req.body;
+    compliments.push(newCompliment);
+    res.status(200).send(compliments);
+  },
 
-        newID++
-    },
+  updateCompliment: (req, res) => {
+    let { index, newCompliment } = req.body;
+    compliments.splice(index, 1, newCompliment);
+    res.status(200).send(compliments);
+  },
 
-    deleteUser: (req,res) => {
-        console.log(req.params)
-        let { id } = req.params
-        let index = database.findindex(userObj => userObj.id === +id)
-        database = {}
-        res.status(200).send(database)
-    }
-
-}
+  deleteCompliment: (req, res) => {
+    let { index } = req.params;
+    compliments.splice(index, 1);
+    res.status(200).send(compliments);
+  },
+};
