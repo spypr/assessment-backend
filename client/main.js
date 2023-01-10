@@ -10,7 +10,7 @@ const updatedComplimentInput = document.querySelector(
 const complimentID = document.querySelector("#complimentID");
 
 const showList = (arr) => {
-  compList.innerHTML = "Compliments:";
+  compList.innerHTML = "All Compliments:";
   arr.forEach((element, index) => {
     let listItem = document.createElement("li");
     listItem.textContent = element;
